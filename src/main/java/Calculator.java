@@ -12,7 +12,7 @@ public class Calculator {
 	    }
 	    public static void main(String ar[])
 	    {
-	    	System.out.println(new Calculator().add(3, 4));
+	    	System.out.println(new Calculator().multiplication(3, 4));
 	    }
 	    
 	}
