@@ -1,0 +1,39 @@
+name: CalcDemo CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      # or main
+  pull_request:
+    branches:
+      - main
+      # or main
+
+jobs:
+  build-test-package:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Stage 1: Checkout (Jenkins: git clone)
+    - name: Checkout source code
+      uses: actions/checkout@v4
+
+    # Stage 2: Setup Java
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
+    # Stage 3: Build (Jenkins: mvn clean compile)
+    - name: Build with Maven
+      run: mvn clean compile
+
+    # Stage 4: Test (Jenkins: mvn test)
+    - name: Run unit tests
+      run: mvn test
+
+    # Stage 5: Package (Jenkins: mvn package)
+    - name: Package application
+      run: mvn package
