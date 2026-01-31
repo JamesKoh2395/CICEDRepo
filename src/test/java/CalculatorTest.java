@@ -17,6 +17,6 @@ public class CalculatorTest {
     @Test
     public void testMultiplication() {
         Calculator calc = new Calculator();
-        assertEquals(32, calc.multiplication(8, 4));
+        assertEquals(24, calc.multiplication(8, 3));
     }
 }
